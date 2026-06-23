@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Resend API Key Tester</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <div class="logo">&#9993;</div>
+        <div>
+          <h1>Resend API Key Tester</h1>
+        </div>
+      </div>
+      <p class="sub">Paste your Resend API key and send a real test email to confirm it works.</p>
+
+      <div class="notice">
+        <span class="ico">&#128274;</span>
+        <span>
+          <b>Your API key is never stored.</b> It is sent over a single encrypted request, used once to
+          talk to Resend, then discarded. Nothing is saved, logged, or cached on the server.
+        </span>
+      </div>
+
+      <form id="form" autocomplete="off">
+        <label for="apiKey">Resend API Key</label>
+        <div class="key-row">
+          <input id="apiKey" type="password" placeholder="re_xxxxxxxxxxxxxxxxxxxxxxxx" autocomplete="off" />
+          <button type="button" class="toggle" id="toggleKey">Show</button>
+        </div>
+        <p class="hint">Starts with <code>re_</code>. Create one at resend.com &rarr; API Keys.</p>
+
+        <label for="from">From</label>
+        <input id="from" placeholder="Your Name &lt;you@yourverifieddomain.com&gt;" autocomplete="off" />
+        <p class="hint">Must use a domain you've <b>verified</b> in Resend. You can edit the display name freely.</p>
+
+        <label for="to">To</label>
+        <input id="to" placeholder="recipient@example.com" autocomplete="off" />
+        <p class="hint">Separate multiple recipients with commas.</p>
+
+        <label for="subject">Subject</label>
+        <input id="subject" placeholder="Test email from Resend" autocomplete="off" />
+
+        <label for="message">Message</label>
+        <textarea id="message">This test email was sent through the Resend API to confirm that sending works. Powered by Hutech ICT Resources.</textarea>
+
+        <button type="submit" class="send" id="btn">Send test email</button>
+      </form>
+
+      <div class="footer">
+        <p class="dev">Developed with &#10084;&#65039; by <a href="https://hutytechict.com/" target="_blank" rel="noopener noreferrer">Hutech ICT Resources</a></p>
+        <a class="coffee" href="https://flutterwave.com/donate/syfj4ekzfsjt" target="_blank" rel="noopener noreferrer">&#9749; Buy me a coffee</a>
+      </div>
+    </div>
+
+    <!-- Pop-up confirmation modal -->
+    <div class="overlay" id="overlay">
+      <div class="modal" id="modal">
+        <div class="badge" id="modalBadge"></div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalText"></p>
+        <pre id="modalDetail" class="hidden"></pre>
+        <button id="modalClose">OK</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
